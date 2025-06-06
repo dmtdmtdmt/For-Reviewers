@@ -57,19 +57,29 @@ The analyzer provides:
 Imagine analyzing two treatments (A and B) across small and large hospitals:
 
 ```
-Treatment A:
-  Small: 80% success
-  Large: 50% success
-  Overall: 60% success
+=== Results ===
 
-Treatment B:
-  Small: 90% success
-  Large: 60% success
-  Overall: 65% success
+Success Rates (%):
 
-Condition met? ✗ NO
-⚠️ WARNING: Paradox detected!
-- A better in subgroups but worse overall
+A:
+  L: 50.0%
+  S: 10.0%
+  Overall: 16.7%
+
+B:
+  L: 20.0%
+  S: 23.6%
+  Overall: 22.5%
+
+Subgroup Proportions:
+  A: 0.20
+  B: 0.41
+
+Condition met? NO
+
+Note: No paradox, but proportions differ
+
+Analyze another? (y/n): ****
 ```
 
 ## Technical Details
