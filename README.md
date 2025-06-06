@@ -54,32 +54,60 @@ The analyzer provides:
 
 ## Example Scenario
 
-Imagine analyzing two treatments (A and B) across small and large hospitals:
+Imagine analyzing two treatments (open surgery, and percutaneous nephrolithotomy) across small and large hospitals:
 
 ```
+=== Simpson's Paradox Analyzer ===
+Group variable (e.g., 'size'): size
+Treatment variable (e.g., 'tx'): tx
+Outcome variable (e.g., 'success'): succes
+size values (comma sep): -2cm,+2cm
+tx types (comma sep): open surgery, percutaneous nephrolithotomy
+
+Enter counts for each combination:
+
+-2cm + open surgery:
+  Total cases: 87
+  Successes: 81
+
+-2cm + percutaneous nephrolithotomy:
+  Total cases: 270
+  Successes: 234
+
++2cm + open surgery:
+  Total cases: 263
+  Successes: 192
+
++2cm + percutaneous nephrolithotomy:
+  Total cases: 80
+  Successes: 55
+
+Data entered successfully!
+
 === Results ===
 
 Success Rates (%):
 
-A:
-  L: 50.0%
-  S: 10.0%
-  Overall: 16.7%
+open surgery:
+  -2cm: 93.1%
+  +2cm: 73.0%
+  Overall: 78.0%
 
-B:
-  L: 20.0%
-  S: 23.6%
-  Overall: 22.5%
+percutaneous nephrolithotomy:
+  -2cm: 86.7%
+  +2cm: 68.8%
+  Overall: 82.6%
 
 Subgroup Proportions:
-  A: 0.20
-  B: 0.41
+  open surgery: 3.02
+  percutaneous nephrolithotomy: 0.30
 
-Condition met? NO
+Condition met?  NO
 
-Note: No paradox, but proportions differ
+ WARNING: Paradox detected!
+- open surgery better in subgroups but worse overall
 
-Analyze another? (y/n): ****
+Analyze another? (y/n): ***
 ```
 
 ## Technical Details
